@@ -1,0 +1,21 @@
+@startuml
+title Bestellen via leerlijst
+skinparam actorStyle awesome
+skinparam titleBorderRoundCorner 15
+skinparam titleBorderThickness 1
+skinparam titleBorderColor Grey
+skinparam titleBackgroundColor Lavender
+
+actor Gebruiker
+participant "Magazijn Systeem" as System
+
+Gebruiker -> System : Open leerlijst
+System --> Gebruiker : Toon boeken
+Gebruiker -> System : Plaats bestelling
+System -> System : Verwerk bestelling
+System --> Gebruiker : Vraag om betaling
+Gebruiker -> System : Betaal bestelling
+System -> System : Verwerk betaling
+System --> Gebruiker : Betaling verwerkt
+System -> System : Registreer bestelling in systeem
+@enduml
