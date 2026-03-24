@@ -1,0 +1,18 @@
+@startuml
+title Uitlevering
+skinparam actorStyle awesome
+skinparam titleBorderRoundCorner 15
+skinparam titleBorderThickness 1
+skinparam titleBorderColor Grey
+skinparam titleBackgroundColor Lavender
+
+actor Medewerker
+participant "Magazijn Systeem" as System
+actor Gebruiker
+
+Gebruiker -> System : Plaats bestelling
+System -> Medewerker : Melding over bestelling
+Medewerker --> System : Controleer bestelling
+Medewerker -> System : Update bestelling status
+Medewerker -> Gebruiker : Stuur boeken op
+@enduml
