@@ -1,0 +1,50 @@
+@startuml
+left to right direction
+skinparam linetype ortho
+skinparam actorstyle awesome
+
+
+actor Customer
+actor Librarian
+
+package "Library System" {
+    usecase "Make Reservation" as UC1
+    usecase "Remove Reservation" as UC2
+    usecase "Lend Item" as UC3
+    usecase "Search Catalog" as UC4
+    usecase "Pick up Item" as UC11
+    usecase "Return Item" as UC12
+    usecase "Extend Reservation" as UC13
+    usecase "Maintenance" as Maint    
+    usecase "Remove/Update Item" as UC5
+    usecase "Add Item" as UC8
+    usecase "Add Customer" as UC9
+    usecase "Remove/Update Customer" as UC10
+    usecase "Create account" as UC14
+    usecase "Delete account" as UC15
+    usecase "Edit account info" as UC16
+}
+
+
+Customer --> UC1
+Librarian --> UC2
+Librarian --> UC3
+Customer --> UC4
+Customer --> UC11
+Customer --> UC12
+Customer --> UC13
+Librarian --> UC13
+Customer --> UC14
+Customer --> UC15
+Customer --> UC16
+
+
+UC3 ..> UC2
+Librarian --> Maint
+
+Maint ..> UC5 
+Maint ..> UC8 
+Maint ..> UC9
+Maint ..> UC10
+
+@enduml
