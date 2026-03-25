@@ -13,6 +13,6 @@ actor Gebruiker
 Gebruiker -> System : Plaats bestelling
 System -> Medewerker : Melding over bestelling
 Medewerker --> System : Controleer bestelling
-Medewerker -> System : Update bestelling status
 Medewerker -> Gebruiker : Stuur boeken op
+Medewerker -> System : Update bestelling status
 @enduml
