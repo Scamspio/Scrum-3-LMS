@@ -2,31 +2,37 @@
 left to right direction
 skinparam actorstyle awesome
 
-actor "Gebruiker" as User
-actor "Magazijn medewerker" as Staff
-actor "School" as School
+actor "Student" as Student
+actor "Magazijnmedewerker" as Staff
+actor "Schoolbeheerder" as School
 
-package "Inventory Management System" {
-  
-    usecase "Zoeken & Bestellen" as Order
-    usecase "Leerlijsten Beheren" as Booklist
+package "Inventory Management Systeem" {
     
     
-    usecase "Voorraad Beheren" as Inventory
-    usecase "Bestellingen Verwerken" as Process
-    usecase "Retouren" as Returns
-    usecase "Innamen" as Intake
+    package "Beveiligde Omgeving (Login Vereist)" #line.dashed {
+        usecase "Producten Zoeken & Bestellen" as Order
+        usecase "Retour Aanvragen" as Return
+        usecase "Leerlijsten Beheren" as Booklist
+        usecase "Bestellingen Verwerken" as Process
+        usecase "Voorraad Muteren" as Inventory
+        usecase "Innames Registreren" as Intake
+    }
+}
 
 
+Student -- Order
+Student -- Return
 
-User --> Order
+School -- Booklist
 
-School --> Booklist
-
-Staff --> Inventory
-Staff --> Process
-Staff --> Intake
+Staff -- Process
+Staff -- Intake
+Staff -- Inventory
 
 
-Returns <-- User 
+note top of "Beveiligde Omgeving (Login Vereist)"
+  Alle acties in dit blok hebben een beveiligde login vereist. 
+  Alleen geautoriseerde gebruikers kunnen deze functies uitvoeren.
+end note
+
 @enduml
