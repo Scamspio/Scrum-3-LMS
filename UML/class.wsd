@@ -1,0 +1,53 @@
+@startuml
+
+Database LMS {
+    class Employee {
+        + id: int
+        + name: string
+        + addBook()
+    }
+
+    class BookList {
+        + id: int
+        + name: string
+        + boeken: array
+        + addBook()
+    }
+
+    class Order {
+        + id: int
+        + factuur: int
+    }
+
+    class Invoice {
+        + id: int
+    }
+
+    class Customer {
+        + id: int
+        + address: string
+        + placeOrder()
+    }
+
+    class Student {
+        + school: foreign 
+    }
+
+    class School {
+        + schoolId: int
+        + createBookList()
+    }
+
+    class Book {
+        + id: int
+        + name: string
+    }
+
+    Customer <|-- School
+    Customer <|-- Student
+    School *- Student
+    Employee -> Book
+    Book <-- BookList
+    BookList <-- Customer
+
+}
