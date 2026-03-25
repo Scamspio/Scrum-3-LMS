@@ -9,27 +9,24 @@ actor "School" as School
 package "Inventory Management System" {
   
     usecase "Zoeken & Bestellen" as Order
-    usecase "Leningen Beheren" as manageLoans
-    usecase "Account Beheren" as Account
     usecase "Leerlijsten Beheren" as Booklist
     
     
     usecase "Voorraad Beheren" as Inventory
     usecase "Bestellingen Verwerken" as Process
-    usecase "Inname & Retouren" as Returns
-}
+    usecase "Retouren" as Returns
+    usecase "Innamen" as Intake
+
 
 
 User --> Order
-User --> manageLoans
-User --> Account
 
 School --> Booklist
 
 Staff --> Inventory
 Staff --> Process
-Staff --> Returns
+Staff --> Intake
 
 
-Returns <-- User : Retourneren
+Returns <-- User 
 @enduml
