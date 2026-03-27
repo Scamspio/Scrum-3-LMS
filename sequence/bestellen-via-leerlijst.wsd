@@ -1,4 +1,4 @@
-@startuml
+@startuml Bestellen-via-leerlijst
 title Bestellen via leerlijst
 skinparam actorStyle awesome
 skinparam titleBorderRoundCorner 15
