@@ -1,38 +1,25 @@
-@startuml
+@startuml usecase
 left to right direction
 skinparam actorstyle awesome
 
-actor "Student" as Student
-actor "Magazijnmedewerker" as Staff
-actor "Schoolbeheerder" as School
+actor "Lener" as User
+actor "Medewerker" as Staff
 
-package "Inventory Management Systeem" {
+package "Library System" {
+    usecase "Catalogus zoeken, Reserveren & Afhaalplek selecteren" as Reserve
+    usecase "Leen geschiedenis beheren" as Account
     
-    
-    package "Beveiligde Omgeving (Login Vereist)" #line.dashed {
-        usecase "Producten Zoeken & Bestellen" as Order
-        usecase "Retour Aanvragen" as Return
-        usecase "Leerlijsten Beheren" as Booklist
-        usecase "Bestellingen Verwerken" as Process
-        usecase "Voorraad Muteren" as Inventory
-        usecase "Innames Registreren" as Intake
-    }
+    usecase "Inname & Uitgifte" as Loan
+    usecase "Facturatie & Boetes" as Billing
+    usecase "Transport" as Logistics
+    usecase "Wachtlijsten beheer" as Waitlist
 }
 
+User -- Reserve
+User -- Account
 
-Student -- Order
-Student -- Return
-
-School -- Booklist
-
-Staff -- Process
-Staff -- Intake
-Staff -- Inventory
-
-
-note top of "Beveiligde Omgeving (Login Vereist)"
-  Alle acties in dit blok hebben een beveiligde login vereist. 
-  Alleen geautoriseerde gebruikers kunnen deze functies uitvoeren.
-end note
-
+Staff -- Loan
+Staff -- Billing
+Staff -- Logistics
+Staff -- Waitlist
 @enduml
