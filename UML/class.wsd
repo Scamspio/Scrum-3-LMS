@@ -1,53 +1,49 @@
-@startuml
+@startuml Class Diagram
 
-Database LMS {
+Database {
+    class IMS {
+        + checkStock()
+        + shipOrder()
+        + addBook()
+    }
+
+    Class User {
+        + role: int
+        + name: string
+        + email: string
+        + pref_library: int
+    }
+
     class Employee {
-        + id: int
         + name: string
-        + addBook()
-    }
-
-    class BookList {
-        + id: int
-        + name: string
-        + boeken: array
-        + addBook()
-    }
-
-    class Order {
-        + id: int
-        + factuur: int
-    }
-
-    class Invoice {
-        + id: int
     }
 
     class Customer {
-        + id: int
         + address: string
         + placeOrder()
+        + payOrder()
     }
 
-    class Student {
-        + school: foreign 
+    class Order {
+        
+        + invoiceId: int
+        + checkStatus(): int
     }
 
-    class School {
-        + schoolId: int
-        + createBookList()
+    class Invoice {
+        + checkPayment(): boolean
+    }
+
+    Class Transaction {
+        + 
     }
 
     class Book {
-        + id: int
+        
         + name: string
+        + getBook()
     }
 
-    Customer <|-- School
-    Customer <|-- Student
-    School *- Student
-    Employee -> Book
-    Book <-- BookList
-    BookList <-- Customer
+
 
 }
