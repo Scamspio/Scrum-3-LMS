@@ -1,4 +1,4 @@
-@startuml
+@startuml Magazijn-en-inname
 title Inname
 skinparam actorStyle awesome
 skinparam titleBorderRoundCorner 15

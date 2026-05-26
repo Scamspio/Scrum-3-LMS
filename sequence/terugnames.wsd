@@ -1,4 +1,4 @@
-@startuml
+@startuml Terugnames
 title Terugnames
 skinparam actorStyle awesome
 skinparam titleBorderRoundCorner 15
